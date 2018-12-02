@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="my_clean_way.movies.ui.MoviePage" xmlns:ffi="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" Title="{Binding Movie.Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Icon="{Binding FavIcon}" Command="{Binding FavCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ffi:CachedImage Grid.Row="0" Grid.ColumnSpan="3" Source="{Binding Movie.BackdropPath}" />
+                <ffi:CachedImage Grid.Row="1" Margin="24,-130,0,0" HeightRequest="150" Source="{Binding Movie.PosterPath}" />
+                <StackLayout Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                    <Label Text="{Binding Movie.Overview}" Margin="8" />
+                </StackLayout>
+                <StackLayout  Grid.Row="2" Grid.ColumnSpan="2" Margin="16,-50" Orientation="Horizontal">
+                     <Label Text="Nota" Margin="8" />
+                    <Label Text="{Binding Movie.VoteAverage}" Margin="8" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Prism.Forms" Version="7.1.0.431" />
+    <PackageReference Include="akavache" Version="6.0.31" />
+    <PackageReference Include="LiveXAML" Version="2.1.50" />
+    <PackageReference Include="Refit" Version="4.6.58" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.4.859" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="movie_list\" />
+    <Folder Include="movie_favorites\" />
+    <Folder Include="movie_list\ui\" />
+    <Folder Include="movie_list\domain\" />
+    <Folder Include="movie_list\repository\" />
+    <Folder Include="movies\" />
+    <Folder Include="movies\domain\" />
+    <Folder Include="movie_favorites\domain\" />
+    <Folder Include="movie_favorites\repository\" />
+    <Folder Include="movie_favorites\ui\" />
+    <Folder Include="data\" />
+    <Folder Include="movies\data\" />
+    <Folder Include="ui\" />
+    <Folder Include="domain\" />
+    <Folder Include="movies\ui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="movie_list\repository\LocalDataSource.cs" />
+    <Compile Remove="movies\ui\HomePage.xaml.cs" />
+    <Compile Remove="ui\TabPageViewModelBase.cs" />
+    <Compile Remove="MainPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="movies\ui\HomePage.xaml" />
+    <EmbeddedResource Remove="MainPage.xaml" />
+  </ItemGroup>
+</Project>

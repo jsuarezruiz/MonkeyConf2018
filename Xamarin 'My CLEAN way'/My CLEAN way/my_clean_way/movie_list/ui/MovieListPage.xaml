@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="my_clean_way.movie_list.ui.MovieListPage" 
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+             xmlns:prismbehavior="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
+             prism:ViewModelLocator.AutowireViewModel="True" 
+             xmlns:ffi="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             Title="Populares">
+     <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="Favoritos" Command="{Binding NavigateToFavoritesCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+            <ListView ItemsSource="{Binding Movies}" SeparatorVisibility="None" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="4" Margin="8">
+                                <StackLayout Orientation="Horizontal">
+                                    <ffi:CachedImage HeightRequest="100" Source="{Binding PosterPath}" />
+                                    <Label VerticalTextAlignment="Center" Margin="8" Text="{Binding Title}" FontSize="Large" FontAttributes="Bold" />
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>   
+                <ListView.Behaviors>
+                    <prismbehavior:EventToCommandBehavior EventName="ItemTapped" Command="{Binding MovieSelectedCommand}" EventArgsParameterPath="Item" />
+                    <prismbehavior:EventToCommandBehavior EventName="ItemAppearing" Command="{Binding MovieAppearingCommand}" EventArgsParameterPath="Item" />
+                </ListView.Behaviors>
+            </ListView>
+    </ContentPage.Content>
+</ContentPage>

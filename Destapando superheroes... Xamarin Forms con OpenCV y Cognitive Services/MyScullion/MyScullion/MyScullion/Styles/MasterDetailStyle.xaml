@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyScullion.Styles.MasterDetailStyle">
+    <ContentView.Resources>
+        <DataTemplate x:Key="MasterDetailCell">
+            <ViewCell >
+                <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                    <Label VerticalOptions="FillAndExpand" 
+                    VerticalTextAlignment="Center" 
+                    Text="{Binding Title}" 
+                    FontSize="24"/>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="MasterDetailSeparator">
+            <ViewCell>
+                <Grid HeightRequest="1" HorizontalOptions="FillAndExpand">
+                    <BoxView BackgroundColor="Blue" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                </Grid>
+            </ViewCell>
+        </DataTemplate>
+        
+    </ContentView.Resources>
+</ContentView>

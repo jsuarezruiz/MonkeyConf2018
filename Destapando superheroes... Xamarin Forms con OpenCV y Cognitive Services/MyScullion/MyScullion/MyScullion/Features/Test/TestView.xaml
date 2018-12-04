@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyScullion.Features.Test.TestView">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="LabelTimeWorking"/>
+                </StackLayout>
+
+                <Button Text="Insert ingredients" Clicked="InsertIngredientsClicked"/>
+                <Button Text="Get Ingredients" Clicked="GetIngredientsClicked"/>
+                <Button Text="Insert measures" Clicked="InsertMeasuresClicked"/>
+                <Button Text="Get Measures" Clicked="GetMeasuresClicked"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Insert test" Clicked="InsertRandomTest"/>
+                    <Entry x:Name="EntryRows" Placeholder="Number of rows for test"/>
+                </StackLayout>
+
+                <Button Text="Get All" Clicked="GetRandomData"/>
+            </StackLayout>
+
+            <Grid x:Name="GridWaiting" BackgroundColor="White" Opacity="0.5" IsVisible="False"/>
+        </Grid>
+
+        
+
+
+    </ContentPage.Content>
+</ContentPage>

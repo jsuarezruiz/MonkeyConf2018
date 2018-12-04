@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:me="clr-namespace:MyScullion.Features.Main"
+             x:Class="MyScullion.Features.Main.MasterDetailMenu"
+             Title="Master">
+
+    <ContentPage.Resources>
+        <me:MasterListDataTemplateSelector x:Key="MasterListDataTemplate"
+                                           Cell="{StaticResource MasterDetailCell}"
+                                           Separator="{StaticResource MasterDetailSeparator}"/>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+              ItemsSource="{Binding MenuItems}"
+              ItemTapped="MenuItemsListView_ItemTapped"
+              ItemTemplate="{StaticResource MasterListDataTemplate}">
+        </ListView>
+    </Grid>
+    
+</ContentPage>
